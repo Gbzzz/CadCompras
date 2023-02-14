@@ -32,10 +32,10 @@ class ProdutosController extends Controller
         $produtos = new Produtos();
         $produtos::get();
         $produtos = Produtos::findOrFail($id);
-        return view('form', ['produtos' => '$produtos']);
+        return view('formADD', ['produtos' => '$produtos']);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Atualizar $atualizar)
     {
         $produtos = Produtos::findOrFail($id);
         $produtos->update($request->all());

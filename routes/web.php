@@ -30,11 +30,11 @@ Route::get('/produtos/novo', 'App\Http\Controllers\ProdutosController@novo');
 Route::post('/produtos/novo', 'App\Http\Controllers\ProdutosController@novo');
 
 Route::get('/produtos/add', 'App\Http\Controllers\ProdutosController@add');
-Route::post('produtos/add', 'App\Http\Controllers\ProdutosController@add');
+Route::post('/produtos/add', 'App\Http\Controllers\ProdutosController@add');
 
 Route::get('/produtos/{id}/edit', 'App\Http\Controllers\ProdutosController@edit');
 
-Route::post('produtos/update/{id}', 'App\Http\Controllers\ProdutosController@update');
+Route::put('/produtos/update/{id}', 'App\Http\Controllers\ProdutosController@update');
 
 Route::delete('/produtos/delete/{id}', 'App\Http\Controllers\ProdutosController@delete');
 
