@@ -1438,3 +1438,13 @@ select {
   }
 }
 
+#box{
+	/*definimos a largura do box*/
+	width:250px;
+	/* definimos a altura do box */
+	height:40px;
+	/* definimos a cor de fundo do box */
+	background-color: transparent;
+	/* definimos o quão arredondado irá ficar nosso box */
+	border-radius: 10px 20px;
+	}

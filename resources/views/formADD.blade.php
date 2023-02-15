@@ -1,7 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <a href="{{ url('produtos/novo') }}">Produtos</a>
+            <a href="{{ url('produtos') }}">Lista de Produtos |</a>
+            <a href="{{ url('produtos/novo') }}">Adicionar Produtos</a>
         </h2>
     </x-slot>
 
@@ -15,32 +16,32 @@
                               @csrf
                               <div class="form-group">
                                 <label>Nome Produto</label>
-                                <input name="descricao" type="text" class="form-control">
+                                <input name="descricao" type="text" class="form-control" id="box" >
                               </div>
                               <br>
                               <div>
                                 <label>Preço</label>
-                                <input name="preco" type="interger" class="form-control">
+                                <input name="preco" type="interger" class="form-control" id="box">
                               </div>
                               <br>
                               <div>
                                 <label>Data de Validade</label>
-                                <input name="data_validade" type="date" class="form-control">
+                                <input name="data_validade" type="date" class="form-control" id="box">
                               </div>
                               <br>
                               <div>
                                 <label>Data da Compra</label>
-                                <input name="data_compra" type="datetime-local" class="form-control">
+                                <input name="data_compra" type="datetime-local" class="form-control" id="box">
                               </div>
                               <br>
                               <div>
                                 <label>Quantidade</label>
-                                <input name="quantidade" type="number" class="form-control">
+                                <input name="quantidade" type="number" class="form-control" id="box">
                               </div>
                               <br>
                               <div>
                                 <label>Perecível?</label>
-                                <input name="perecivel" type="text" class="form-control">
+                                <input name="perecivel" type="text" class="form-control" id="box">
                               </div>
                               <br>
                               <button type="submit" class="btn btn-primary">Enviar >>></button>

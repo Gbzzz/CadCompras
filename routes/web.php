@@ -34,7 +34,7 @@ Route::post('/produtos/add', 'App\Http\Controllers\ProdutosController@add');
 
 Route::get('/produtos/{id}/edit', 'App\Http\Controllers\ProdutosController@edit');
 
-Route::put('/produtos/update/{id}', 'App\Http\Controllers\ProdutosController@update');
+Route::put('/produtos/{id}/update', 'App\Http\Controllers\ProdutosController@update')->name('form.UP');
 
 Route::delete('/produtos/delete/{id}', 'App\Http\Controllers\ProdutosController@delete');
 
