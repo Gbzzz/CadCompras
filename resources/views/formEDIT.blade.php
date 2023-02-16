@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                            <form action="produtos/{{$produtos->id}}/update" method="POST">
+                            <form action="update" method="POST">
                             @method('PUT')
                             @csrf
                               <div class="form-group">

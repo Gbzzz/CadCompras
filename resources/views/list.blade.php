@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <a href="{{ url('produtos') }}">Lista de Produtos</a>
+            <a href="{{ url('produtos') }}">Lista de Produtos |</a>
             <a href="{{ url('produtos/novo') }}">Cadastrar Produtos</a>
         </h2>
     </x-slot>
@@ -14,13 +14,13 @@
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Descrição</th>
-                            <th scope="col">Preço</th>
-                            <th scope="col">Data de Validade</th>
-                            <th scope="col">Data da Compra</th>
-                            <th scope="col">Quantidade</th>
-                            <th scope="col">Perecível?</th>
+                            <th>#</th>
+                            <th>Descrição</th>
+                            <th>Preço</th>
+                            <th>Data de Validade</th>
+                            <th>Data da Compra</th>
+                            <th>Quantidade</th>
+                            <th>Perecível?</th>
                           </tr>
                         </thead>
                         <tbody>

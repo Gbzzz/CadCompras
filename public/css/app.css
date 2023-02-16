@@ -150,10 +150,12 @@ sup {
 
 table {
   border-collapse: collapse;
+  width: 100%;
 }
 
 th, td {
   border: 1px solid black;
+  text-align: center;
 }
 
 
@@ -1448,3 +1450,4 @@ select {
 	/* definimos o quão arredondado irá ficar nosso box */
 	border-radius: 10px 20px;
 	}
+
