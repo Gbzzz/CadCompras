@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <a href="{{ url('produtos') }}">Lista de Produtos |</a>
-            <a href="{{ url('produtos/novo') }}">Cadastrar Produto</a>
+            <a href="{{ url('produtos') }}">Lista de Produtos</a>
+            <a href="{{ url('produtos/novo') }}">Cadastrar Produtos</a>
         </h2>
     </x-slot>
 
@@ -34,14 +34,23 @@
                             <td>{{$produto->data_compra}}</td>
                             <td>{{$produto->quantidade}}</td>
                             <td>{{$produto->perecivel}}</td>
+
                             <td>
-                                <a href="/produtos/{{$produto->id}}/edit" class="btn btn-info">Editar
+                                <form action="/produtos/{{$produto->id}}/edit">
+                                    <button
+                                        type="submit"> Editar
+                                    </button>
+                                </form>
                             </td>
+
                             <td>
-                                {{-- <form action="produtos/delete/{{$produto->id}}" method="POST">
-                                @csrf
-                                @method('delete') --}}
-                                <a href="/produtos/delete/{{$produto->id}}" class="btn btn-danger">Deletar
+                                <form action="produtos/delete/{{$produto->id}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                        <button
+                                            type="submit"> Deletar
+                                        </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

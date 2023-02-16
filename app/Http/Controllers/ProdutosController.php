@@ -47,7 +47,7 @@ class ProdutosController extends Controller
     }
 
     public function delete ($id){
-        $produtos = Produtos::findOrFail($id);
+        $produtos = Produtos::find($id);
         $produtos->delete();
         return Redirect::to('/produtos');
     }

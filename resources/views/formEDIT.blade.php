@@ -10,7 +10,8 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
 
-                            <form action="produtos/{{$produtos->id}}/update" method="PUT">
+                            <form action="produtos/{{$produtos->id}}/update" method="POST">
+                            @method('PUT')
                             @csrf
                               <div class="form-group">
                                 <label>Nome Produto</label>
@@ -42,7 +43,7 @@
                                 <input name="perecivel" type="text" class="form-control" value="{{ $produtos->perecivel }}" id="box">
                               </div>
                               <br>
-                                <button type="submit" class="btn btn-primary">Salvar >>></button>
+                                <button type="submit" class="btn btn-primary">Atualizar >>></button>
                             </form>
 
                 </div>
