@@ -1,0 +1,22 @@
+[http.middlewares]
+  [http.middlewares.basic-auth]
+    [http.middlewares.basic-auth.basicAuth]
+      users = [
+        "administrador:$apr1$tz14ImUD$Hq9WGEG2AlPxE5iXg3RbM0",
+      ]
+
+  # Redirect to https
+  [http.middlewares.redirect-to-https]
+    [http.middlewares.redirect-to-https.redirectScheme]
+      scheme = "https"
+      permanent = true
+
+  # Remove prefixo ao direcionar rota
+  [http.middlewares.strip-prefix-1]
+    [http.middlewares.strip-prefix-1.redirectRegex]
+      regex = "^(https?://[^/]+/[a-z0-9_]+)$$"
+      replacement = "$${1}/"
+      permanent = true
+  [http.middlewares.strip-prefix-2]
+    [http.middlewares.strip-prefix-2.stripPrefixRegex]
+      regex = "/[a-z0-9_]+"

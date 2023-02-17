@@ -1,0 +1,7 @@
+## Static configuration
+#[http.routers]
+#  [http.routers.http-catchall]
+#    entryPoints = ["http"]
+#    rule = "HostRegexp(`{host:.+}`)"
+#    middlewares = "redirect-to-https"
+#    service = "noop@internal"

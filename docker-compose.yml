@@ -1,0 +1,102 @@
+version: '3.7'
+
+networks:
+  traefik-public:
+    external: true
+
+services:
+# Portainer - WebUI for Containers
+  portainer:
+    container_name: portainer
+    image: portainer/portainer-ce:latest
+    restart: unless-stopped
+    command: -H unix:///var/run/docker.sock
+    networks:
+      - traefik-public
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 8000:8000
+      - 9000:9000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./portainer-data:/data
+    environment:
+      - TZ=America/Maceio
+    labels:
+      - traefik.enable=true
+      - traefik.network=traefik-public
+      - traefik.http.routers.portainer-rtr.entrypoints=web
+      - traefik.http.routers.portainer-rtr.rule=Host(`portainer.localhost`)
+      - traefik.http.services.portainer-svc.loadbalancer.server.port=9000
+
+  traefik:
+    container_name: traefik
+    image: traefik:latest
+    ports:
+      - 80:80
+      - 443:443
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=traefik-public
+      - traefik.http.routers.traefik-rtr.entrypoints=web
+      - traefik.http.routers.traefik-rtr.rule=Host(`traefik.localhost`)
+      - traefik.http.routers.traefik-rtr.service=api@internal
+      # Enable HTTP Basic auth, using the middleware created above
+      #- traefik.http.routers.traefik-rtr.middlewares=basic-auth@file
+      # Define the port inside of the Docker service to use
+      - traefik.http.services.traefik-svc.loadbalancer.server.port=8080
+    volumes:
+      - ./traefik-rules:/rules
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    command:
+      # Enable Docker in Traefik, so that it reads labels from Docker services
+      - --providers.docker
+      # Do not expose all Docker services, only the ones explicitly exposed
+      - --providers.docker.exposedbydefault=false
+      # Create an entrypoint "http" listening on port 80
+      - --entrypoints.web.address=:80
+      # Create an entrypoint "https" listening on port 443
+      - --entrypoints.websecure.address=:443
+      # Load dynamic configuration from one or more .toml or .yml files in a directory.
+      - --providers.file.directory=/rules
+      # Only works on top level files in the rules folder
+      - --providers.file.watch=true
+      # Enable the access log, with HTTP requests
+      - --accesslog
+      # Enable the Traefik log, for configurations and errors
+      - --log
+      # Enable the Dashboard and API
+      - --api
+    networks:
+      - traefik-public
+    restart: unless-stopped   
+
+  laravel:
+    #nome do container definido usando o valor da variável
+    container_name: laravel
+    #imagem do container que será baixada do repositório dockerhub ou harbor
+    #image: harbor.dev.cbm.al.gov.br/dev-local/cakephp:5.6
+    build:
+      context: .
+      #dockerfile: ./Dockerfile
+    #image: harbor.dev.cbm.al.gov.br/dev-local/node
+    #image: nginxdemos/hello
+    restart: unless-stopped
+    networks:
+      - traefik-public
+    #seção onde é definida a montagem bind para o volume da aplicação em desenvolvimento
+    #Necessário mapear diretório do host que contém a aplicação a ser desenvolvida
+    volumes:
+      - ./laravel:/app
+    environment:
+      - APP_ENV=development
+    labels:
+      - traefik.enable=true
+      - traefik.network=traefik-public
+      #definição da porta de entrada do traefik proxy
+      - traefik.http.routers.laravel-rtr.entrypoints=web
+      #definição da rota via traefik proxy
+      - traefik.http.routers.laravel-rtr.rule=Host(`laravel.localhost`)
+      #definição do serviço via traefik proxy
+      - traefik.http.services.laravel-svc.loadbalancer.server.port=80

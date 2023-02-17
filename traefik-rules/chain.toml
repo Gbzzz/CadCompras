@@ -1,0 +1,4 @@
+[http.middlewares]
+  [http.middlewares.remove-prefix]
+    [http.middlewares.remove-prefix.chain]
+      middlewares = [ "strip-prefix-1" , "strip-prefix-2" ]

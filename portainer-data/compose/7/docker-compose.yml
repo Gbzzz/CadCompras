@@ -1,0 +1,33 @@
+version: '3.7'
+
+networks:
+  traefik-public:
+    external: true
+
+services:
+  app:
+    #nome do container definido usando o valor da variável
+    container_name: ${APP?Variável não definida!}
+    #imagem do container que será baixada do repositório dockerhub ou harbor
+    #image: harbor.dev.cbm.al.gov.br/dev-local/cakephp:5.6
+    image: harbor.dev.cbm.al.gov.br/dev-local/laravel
+    #image: harbor.dev.cbm.al.gov.br/dev-local/node
+    #image: nginxdemos/hello
+    restart: unless-stopped
+    networks:
+      - traefik-public
+    #seção onde é definida a montagem bind para o volume da aplicação em desenvolvimento
+    #Necessário mapear diretório do host que contém a aplicação a ser desenvolvida
+    volumes:
+      - /c/projetos/example:/app
+    environment:
+      - APP_ENV=development
+    labels:
+      - traefik.enable=true
+      - traefik.network=traefik-public
+      #definição da porta de entrada do traefik proxy
+      - traefik.http.routers.${APP}-rtr.entrypoints=web
+      #definição da rota via traefik proxy
+      - traefik.http.routers.${APP}-rtr.rule=Host(`${APP}.localhost`)
+      #definição do serviço via traefik proxy
+      - traefik.http.services.${APP}-svc.loadbalancer.server.port=80
