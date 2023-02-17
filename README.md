@@ -9,4 +9,4 @@
 5. criar botão para deletar uma compra; ✅
 6. criar exibição da lista de compras condicionada a critérios específicos
 
-**Rodar local**
+##**Rodar local**##
