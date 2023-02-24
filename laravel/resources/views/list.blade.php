@@ -37,7 +37,7 @@
 
                             <td>
                                 <form action="/produtos/{{$produto->id}}/edit">
-                                    <button
+                                    <button class="btn btn-warning btn-lg btn-block"
                                         type="submit"> Editar
                                     </button>
                                 </form>
