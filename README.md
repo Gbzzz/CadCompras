@@ -37,6 +37,8 @@ C: -> projetos -> CadCompras-master -> laravel -> database -> database.sqlite
 
 ![Captura de tela 2023-03-02 082542](https://user-images.githubusercontent.com/104596830/222415317-a9e54b50-3750-428e-901a-6d431e75a37a.png)
 
+![Captura de tela 2023-03-02 084748](https://user-images.githubusercontent.com/104596830/222419970-644f0211-7448-4f35-a710-05384bdb3346.png)
+
 Teste a conexão (botão inferior esquerdo) e faça download dos drivers necessários do sqlite.
 
 ![Captura de tela 2023-03-02 082658](https://user-images.githubusercontent.com/104596830/222415669-035c65e6-9e11-400d-9b4b-7b449c1c98f1.png)
