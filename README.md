@@ -12,8 +12,6 @@ Extensões que eu recomendo:
 - Laravel Blade Snippets
 *****************************
 
-
-*****************************
 Requisitos:
 
 - Docker Desktop
@@ -55,3 +53,5 @@ Blade templates cached successfully!
 só abrir o navegador e digitar laravel.localhost que a aplicação irá rodar.
 
 :)
+
+*****************************![Captura de tela 2023-03-02 072422](https://user-images.githubusercontent.com/104596830/222414169-e2fba245-9092-4660-965a-4f2cca1d33d2.png)
