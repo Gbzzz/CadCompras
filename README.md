@@ -3,7 +3,7 @@
 *****************************
 Extensões que eu recomendo:
 
-![Captura de tela 2023-03-02 083425](https://user-images.githubusercontent.com/104596830/222417235-9405312f-f8b1-4c7b-8bbc-5c9fbe09ca69.png)
+![Captura de tela 2023-03-02 084425](https://user-images.githubusercontent.com/104596830/222419255-8d9d50f6-11b6-4905-9b46-85c8649bfdb8.png)
 
 *****************************
 
@@ -36,8 +36,6 @@ Vá no Dbeaver, no canto superior direito (New Database Connection), escolha o b
 C: -> projetos -> CadCompras-master -> laravel -> database -> database.sqlite
 
 ![Captura de tela 2023-03-02 082542](https://user-images.githubusercontent.com/104596830/222415317-a9e54b50-3750-428e-901a-6d431e75a37a.png)
-
-![Captura de tela 2023-03-02 082542](https://user-images.githubusercontent.com/104596830/222415540-192e0a44-49da-40b1-9b12-d76ca2b7d302.png)
 
 Teste a conexão (botão inferior esquerdo) e faça download dos drivers necessários do sqlite.
 
