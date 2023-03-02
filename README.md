@@ -3,7 +3,7 @@
 *****************************
 Extensões que eu recomendo:
 
-![Captura de tela 2023-03-02 082126](https://user-images.githubusercontent.com/104596830/222414443-cf2a1b3f-0528-43d1-8c49-cfe52b4850ba.png)
+![Captura de tela 2023-03-02 083425](https://user-images.githubusercontent.com/104596830/222417235-9405312f-f8b1-4c7b-8bbc-5c9fbe09ca69.png)
 
 *****************************
 
@@ -51,6 +51,8 @@ Depois de buildar tudo, rode novamente 'docker-compose up -d' se aparecer esse e
 
 Agora os containers irão rodar, para acessar a aplicação abra seu navegador e digite 'laravel.localhost'.
 
+![Captura de tela 2023-03-02 083643](https://user-images.githubusercontent.com/104596830/222417690-369700b8-9a2d-44f1-9506-18430bf72eff.png)
+
 Para pode ver o container instalando as dependências do PHP e do Laravel, vá no Docker Desktop, clique para expandir o cadcompras-master, e clique no container laravel para poder ver os logs de instalação das dependências. (não é necessário)
 
 ![Captura de tela 2023-03-02 083006](https://user-images.githubusercontent.com/104596830/222416313-8a8c67b8-5a5d-42ea-a74e-a3c9afd79469.png)
@@ -58,8 +60,6 @@ Para pode ver o container instalando as dependências do PHP e do Laravel, vá n
 Depois dessas mensagens:
 
 ![Captura de tela 2023-03-02 082814](https://user-images.githubusercontent.com/104596830/222415904-2217343a-d12a-4451-b01e-439fbd18ecb2.png)
-
-Blade templates cached successfully!
 
 só abrir o navegador e digitar laravel.localhost que a aplicação irá rodar.
 
